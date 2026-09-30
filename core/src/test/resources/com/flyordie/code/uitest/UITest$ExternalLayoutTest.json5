@@ -1,0 +1,11 @@
+{
+  TYPE: "ui11.layout.BorderLayout",
+  top: {
+    TYPE: "ui11.graphics.TextElement",
+    text: "a"
+  },
+  center: {
+    TYPE: "ui11.graphics.TextElement",
+    text: "b"
+  }
+}

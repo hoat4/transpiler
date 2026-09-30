@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies  {
+    api "com.flyordie.ui11:reflectutil"
+
+    api "org.ow2.asm:asm:9.6"
+    api "org.ow2.asm:asm-commons:9.6"
+    api "org.ow2.asm:asm-tree:9.6"
+
+    // WebIDL importálás miatt
+    implementation "org.antlr:antlr4-runtime:4.11.1"
+
+    implementation 'org.slf4j:slf4j-api:2.0.12'
+
+    testImplementation "com.flyordie.ui11:graphics"
+    testImplementation "com.flyordie.ui11:layout-model"
+    testImplementation "com.flyordie.ui11:platform-dom"
+    testImplementation "com.flyordie.ui11:controls"
+}

@@ -1,0 +1,41 @@
+subprojects {
+    apply plugin: "java"
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+
+    javadoc.options.encoding = "UTF-8"
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    }
+
+    afterEvaluate {
+        tasks.withType(JavaCompile) {
+            options.encoding = "UTF-8"
+            options.compilerArgs << "--enable-preview"
+            options.compilerArgs << "--release" << "21"
+            options.compilerArgs << "-parameters"
+        }
+        tasks.withType(JavaExec) {
+            jvmArgs "--enable-preview", "-ea"
+        }
+    }
+}
+
+
+/*
+task transpile(type: JavaExec, group: "build") {
+    dependsOn copyCSources
+    mainClass = "build.CompilerLauncher"
+    classpath= sourceSets.main.runtimeClasspath
+    args "runtime.CTest", "build/out"
+}
+ */
